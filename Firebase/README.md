@@ -57,11 +57,11 @@ In this example, the `classes` field in a `Student` document is an array of clas
 
 Please consult with a Firestore professional to ensure your Firestore schema meets your application's needs and follows best practices. Also, always test your migration with a subset of your data before fully migrating to Firestore³.
 
-Source: Conversation with Bing, 11/7/2023
-(1) undefined. https://stackoverflow.com/questions/47076373/how-to-design-a-cloud-firestore-database-schema.
-(2) Firestore: import sql database - Stack Overflow. https://stackoverflow.com/questions/49207372/firestore-import-sql-database.
-(3) How to migrate MySql Database to Firestore - Stack Overflow. https://stackoverflow.com/questions/48689817/how-to-migrate-mysql-database-to-firestore.
-(4) FireSQL - Query Firestore using SQL syntax - Firebase Open Source. https://firebaseopensource.com/projects/jsayol/firesql/.
-(5) . https://bing.com/search?q=convert+SQL+schema+to+Firestore.
-(6) undefined. https://firebase.google.com/docs/firestore/manage-data/export-import%29.
-(7) undefined. https://firebase.google.com/docs/firestore/manage-data/export-import.
+Source: Conversation with Bing, 11/7/2023 
+1. undefined. https://stackoverflow.com/questions/47076373/how-to-design-a-cloud-firestore-database-schema.
+2. Firestore: import sql database - Stack Overflow. https://stackoverflow.com/questions/49207372/firestore-import-sql-database.
+3. How to migrate MySql Database to Firestore - Stack Overflow. https://stackoverflow.com/questions/48689817/how-to-migrate-mysql-database-to-firestore.
+4. FireSQL - Query Firestore using SQL syntax - Firebase Open Source. https://firebaseopensource.com/projects/jsayol/firesql/.
+5. https://bing.com/search?q=convert+SQL+schema+to+Firestore.
+6. undefined. https://firebase.google.com/docs/firestore/manage-data/export-import%29.
+7. undefined. https://firebase.google.com/docs/firestore/manage-data/export-import.
