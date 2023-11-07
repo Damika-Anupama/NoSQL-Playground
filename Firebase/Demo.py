@@ -56,9 +56,59 @@ def write_multiple_documents(collection, documents, data):
 
     print('Documents written successfully.')
 
-write_nested_data('users', 'user_1', {'name': 'John Doe', 'age': 20})
+
+def read_single_document(collection, document):
+    doc_ref = db.collection(collection).document(document)
+    doc = doc_ref.get()
+    if doc.exists:
+        print('Document data: {}'.format(doc.to_dict()))
+    else:
+        print('No such document!')
+
+def read_multiple_documents(collection):
+    # 1. just get all the documents in the collection
+    # docs = db.collection(collection).stream()
+
+    # 2. get all the documents in the collection, order them by age and limit the results to 2
+    # docs = db.collection(collection).where('age', '>=', 20).order_by('age').limit(2).stream()
+
+    # 3. get all the documents in the collection, check array contains a value
+    docs = db.collection(collection).where('indices', 'array_contains', 'NDX').stream()
+
+    for doc in docs:
+        print('{} => {}\n'.format(doc.id, doc.to_dict()))
+
+def update_single_document(collection, document, data):
+    doc_ref = db.collection(collection).document(document)
+    doc_ref.update(data)
+    print('Document updated successfully.')
+
+def delete_field(collection, document, field):
+    doc_ref = db.collection(collection).document(document)
+    doc_ref.update({
+        field: firestore.DELETE_FIELD
+    })
+    print('Field deleted successfully.')
+
+def delete_document(collection, document):
+    db.collection(collection).document(document).delete()
+    print('Document deleted successfully.')
+
+
+# write_nested_data('users', 'user_1', {'name': 'John Doe', 'age': 20})
 
 # write_single_document('users', 'user_2', {'name': 'Michael Rose', 'age': 25})
+
 # write_multiple_documents('users', ['user_3', 'user_4'], {'user_3': {
 #                          'name': 'Mary Jane', 'age': 35}, 'user_4': {'name': 'Rosa Salazar', 'age': 40}})
+
+# read_single_document('users', 'user_1')
+
+# read_multiple_documents('NYSE')
+
+# update_single_document('users', 'user_1', {'name': 'Tom Crook', 'age': firestore.Increment(5)})
+
+# delete_field('users', 'user_4', 'age')
+
+delete_document('users', 'user_4')
 
