@@ -23,7 +23,6 @@ def write_single_document(collection, document, data):
     db.collection(collection).document(document).set(doc_data)
     print('Document written successfully.')
 
-
 def write_nested_data(collection, document, data):
     doc_data = {
         'name': data['name'],
@@ -94,7 +93,20 @@ def delete_document(collection, document):
     db.collection(collection).document(document).delete()
     print('Document deleted successfully.')
 
+ts = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+article = {
+    'id': ts,
+    'author_details': {
+        'lead_author': True,
+        'email': 'sdfsdf'
+    },
+    'title': 'My First Article',
+    'content': 'This is my first article on Medium.',
+    'published_on': datetime.datetime.now(),
+    'tags': ['python', 'development', 'firebase']
+}
 
+db.collection('users').document('user_1').collection('articles').document(ts).set(article)
 # write_nested_data('users', 'user_1', {'name': 'John Doe', 'age': 20})
 
 # write_single_document('users', 'user_2', {'name': 'Michael Rose', 'age': 25})
@@ -110,5 +122,5 @@ def delete_document(collection, document):
 
 # delete_field('users', 'user_4', 'age')
 
-delete_document('users', 'user_4')
+# delete_document('users', 'user_4')
 

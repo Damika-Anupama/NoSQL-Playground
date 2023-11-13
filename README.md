@@ -5,7 +5,7 @@ cd Firebase
 
 <!-- in windows -->
 virtualenv venv
-env\Scripts\activate
+venv\Scripts\activate
 pip install -r requirements.txt
 
 <!-- in linux -->
